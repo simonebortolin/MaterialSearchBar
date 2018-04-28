@@ -253,13 +253,13 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
                 menuIcon.setImageResource(menuIconRes);
             }
             RelativeLayout.LayoutParams params = (LayoutParams) searchIcon.getLayoutParams();
-            params.rightMargin = (int) (48 * destiny);
+            params.setMarginEnd((int) (48 * destiny));
             searchIcon.setLayoutParams(params);
             menuIcon.setVisibility(VISIBLE);
             menuIcon.setOnClickListener(this);
             popupMenu = new PopupMenu(getContext(), menuIcon);
             popupMenu.inflate(menuResource);
-            popupMenu.setGravity(Gravity.RIGHT);
+            popupMenu.setGravity(Gravity.END);
         }
     }
 
@@ -831,14 +831,14 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
             navIcon.setClickable(true);
             navIcon.getLayoutParams().width = (int) (50 * destiny);
 
-            ((LayoutParams) inputContainer.getLayoutParams()).leftMargin = (int) (50 * destiny);
+            ((LayoutParams) inputContainer.getLayoutParams()).setMarginStart((int) (50 * destiny));
             arrowIcon.setVisibility(GONE);
         } else {
             navIcon.getLayoutParams().width = 1;
             navIcon.setVisibility(INVISIBLE);
             navIcon.setClickable(false);
 
-            ((LayoutParams) inputContainer.getLayoutParams()).leftMargin = (int) (0 * destiny);
+            ((LayoutParams) inputContainer.getLayoutParams()).setMarginStart((int) (0 * destiny));
             arrowIcon.setVisibility(VISIBLE);
         }
         navIcon.requestLayout();

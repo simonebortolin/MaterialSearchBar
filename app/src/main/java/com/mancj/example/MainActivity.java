@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity
     public void onButtonClicked(int buttonCode) {
         switch (buttonCode){
             case MaterialSearchBar.BUTTON_NAVIGATION:
-                drawer.openDrawer(Gravity.LEFT);
+                drawer.openDrawer(Gravity.START);
                 break;
             case MaterialSearchBar.BUTTON_SPEECH:
                 break;
