@@ -915,6 +915,9 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
         } else if (id == R.id.mt_menu) {
             popupMenu.show();
         } else if (id == R.id.mt_nav)
+            if (navButtonEnabled && !navIconShown){
+                disableSearch();
+            }
             if (listenerExists()) {
                 if (navIconShown) {
                     onSearchActionListener.onButtonClicked(BUTTON_NAVIGATION);
