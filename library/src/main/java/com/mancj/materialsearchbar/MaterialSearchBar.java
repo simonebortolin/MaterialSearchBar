@@ -451,6 +451,10 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
         if (listenerExists())
             onSearchActionListener.onSearchStateChanged(false);
         if (suggestionsVisible) animateSuggestions(getListHeight(false), 0);
+
+
+        searchEdit.setText("");
+
     }
 
     /**
@@ -466,6 +470,11 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
             onSearchActionListener.onSearchStateChanged(true);
         }
         searchIcon.setVisibility(GONE);
+
+        searchEdit.requestFocus();
+        if (!suggestionsVisible)
+            showSuggestionsList();
+
     }
 
     private void animateNavIcon() {
