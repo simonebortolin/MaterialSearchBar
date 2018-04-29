@@ -7,33 +7,13 @@
     android:fitsSystemWindows="true"
     tools:context="com.mancj.example.MainActivity">
 
-
-    <include layout="@layout/content_main" />
-
-    <RelativeLayout
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="70dp">
-
-    </RelativeLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/transparentBlack">
-
-        <Button
-            android:layout_gravity="center"
-            android:text="Add product"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button" />
-    </FrameLayout>
-
     <com.mancj.materialsearchbar.MaterialSearchBar
+        style="@style/MaterialSearchBarLight"
         android:id="@+id/searchBar"
-        app:mt_navIconEnabled="false"
+        app:mt_navIconEnabled="true"
+        app:mt_placeholder="Google play"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        />
 
 </android.support.design.widget.CoordinatorLayout>

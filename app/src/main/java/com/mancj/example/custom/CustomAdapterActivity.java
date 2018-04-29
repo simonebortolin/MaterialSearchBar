@@ -43,8 +43,6 @@ public class CustomAdapterActivity extends AppCompatActivity implements View.OnC
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         customSuggestionsAdapter = new CustomSuggestionsAdapter(inflater);
 
-        Button addProductBtn = (Button) findViewById(R.id.button);
-        addProductBtn.setOnClickListener(this);
 
         searchBar.setMaxSuggestionCount(2);
         searchBar.setHint("Find Product..");
