@@ -441,16 +441,12 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
     public void disableSearch() {
         animateNavIcon();
         searchEnabled = false;
-        Animation out = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
-        Animation in = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in_right);
-        out.setAnimationListener(this);
         searchIcon.setVisibility(VISIBLE);
-        inputContainer.startAnimation(out);
-        searchIcon.startAnimation(in);
+        inputContainer.setVisibility(GONE);
+        searchIcon.setVisibility(VISIBLE);
 
         if (placeholderText != null) {
             placeHolder.setVisibility(VISIBLE);
-            placeHolder.startAnimation(in);
         }
         if (listenerExists())
             onSearchActionListener.onSearchStateChanged(false);
@@ -464,16 +460,12 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
         animateNavIcon();
         adapter.notifyDataSetChanged();
         searchEnabled = true;
-        Animation left_in = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in_left);
-        Animation left_out = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out_left);
-        left_in.setAnimationListener(this);
         placeHolder.setVisibility(GONE);
         inputContainer.setVisibility(VISIBLE);
-        inputContainer.startAnimation(left_in);
         if (listenerExists()) {
             onSearchActionListener.onSearchStateChanged(true);
         }
-        searchIcon.startAnimation(left_out);
+        searchIcon.setVisibility(GONE);
     }
 
     private void animateNavIcon() {
@@ -915,16 +907,16 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
         } else if (id == R.id.mt_menu) {
             popupMenu.show();
         } else if (id == R.id.mt_nav)
-            if (navButtonEnabled && !navIconShown){
+            if (navButtonEnabled && !navIconShown && searchEnabled){
                 disableSearch();
             }
-            if (listenerExists()) {
-                if (navIconShown) {
-                    onSearchActionListener.onButtonClicked(BUTTON_NAVIGATION);
-                } else {
-                    onSearchActionListener.onButtonClicked(BUTTON_BACK);
-                }
+        if (listenerExists()) {
+            if (navIconShown) {
+                onSearchActionListener.onButtonClicked(BUTTON_NAVIGATION);
+            } else {
+                onSearchActionListener.onButtonClicked(BUTTON_BACK);
             }
+        }
     }
 
     @Override
