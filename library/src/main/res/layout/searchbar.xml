@@ -23,12 +23,12 @@
 
             <ImageView
                 android:id="@+id/mt_menu"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_alignParentEnd="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:padding="12dp"
+                android:layout_margin="12dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_dots_vertical_black_48dp"
                 android:visibility="gone"/>
@@ -50,7 +50,6 @@
                 android:layout_marginStart="16dp"
                 android:layout_toStartOf="@+id/mt_search"
                 android:layout_toEndOf="@+id/mt_nav"
-                android:fontFamily="sans-serif"
                 android:gravity="center_vertical"
                 android:maxLines="1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -82,8 +81,8 @@
                     android:id="@+id/mt_editText"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:hint="@string/action_search"
@@ -96,10 +95,9 @@
 
                 <ImageView
                     android:id="@+id/mt_clear"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:background="?selectableItemBackgroundBorderless"
-                    android:padding="12dp"
                     android:src="@drawable/ic_close_black_48dp"/>
 
             </LinearLayout>
@@ -125,15 +123,15 @@
 
             <ImageView
                 android:id="@+id/mt_search"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_alignParentEnd="true"
                 android:background="?selectableItemBackgroundBorderless"
                 android:clickable="false"
-                android:padding="12dp"
-                android:src="@drawable/ic_magnify_black_48dp"
+                android:layout_margin="12dp"
                 android:scaleType="centerCrop"
-                android:visibility="visible"/>
+                android:src="@drawable/ic_magnify_black_48dp"
+                android:visibility="visible" />
 
             <View
                 android:id="@+id/mt_menu_divider"

@@ -12,7 +12,7 @@
             android:name="back"
             android:pathData="@string/back_vector_path"
             android:strokeColor="@android:color/white"
-            android:strokeLineCap="round"
+            android:strokeLineCap="square"
             android:strokeWidth="8"/>
     </group>
 </vector>

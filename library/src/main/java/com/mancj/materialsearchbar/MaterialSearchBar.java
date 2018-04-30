@@ -357,7 +357,7 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
         setupSearchIconTint();
         setupArrowIconTint();
         setupClearIconTint();
-        setupIconRippleStyle();
+        //setupIconRippleStyle();
     }
 
     private void setupNavIconTint() {
