@@ -8,7 +8,7 @@
 
 
     //Material SearchBar Light Theme Colors
-    <color name="searchBarIconColor">#3a3a3a</color>
+    <color name="searchBarIconColor">#8c000000</color>
     //Base
     <color name="searchBarPrimaryColor">#FFFFFF</color>
     <color name="searchBarCursorColor">#8000a1ff</color>

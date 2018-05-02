@@ -2,7 +2,7 @@
 <resources>
     <integer name="icon_animation_duration">250</integer>
 
-    <integer name="back_to_menu_from">360</integer>
+    <integer name="back_to_menu_from">0</integer>
     <integer name="back_to_menu_to">180</integer>
 
     <integer name="menu_to_back_from">180</integer>

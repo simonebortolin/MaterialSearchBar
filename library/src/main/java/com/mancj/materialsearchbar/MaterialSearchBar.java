@@ -915,15 +915,13 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
             searchEdit.setText("");
         } else if (id == R.id.mt_menu) {
             popupMenu.show();
-        } else if (id == R.id.mt_nav)
-            if (navButtonEnabled && !navIconShown && searchEnabled){
-                disableSearch();
-            }
-        if (listenerExists()) {
-            if (navIconShown) {
-                onSearchActionListener.onButtonClicked(BUTTON_NAVIGATION);
-            } else {
-                onSearchActionListener.onButtonClicked(BUTTON_BACK);
+        } else if (id == R.id.mt_nav) {
+            if (listenerExists()) {
+                if (navIconShown) {
+                    onSearchActionListener.onButtonClicked(BUTTON_NAVIGATION);
+                } else {
+                    onSearchActionListener.onButtonClicked(BUTTON_BACK);
+                }
             }
         }
     }
