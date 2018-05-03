@@ -678,6 +678,13 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
         }
     }
 
+    public void setSpeechIconRes(int speechIconRes) {
+        this.speechIconRes = speechIconRes;
+        if (speechMode)
+            searchIcon.setImageResource(speechIconRes);
+
+    }
+
     /**
      * True if MaterialSearchBar is in speech mode
      *
