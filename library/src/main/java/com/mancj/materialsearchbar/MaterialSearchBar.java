@@ -254,7 +254,7 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
             }
             LayoutParams params = (LayoutParams) searchIcon.getLayoutParams();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                params.setMarginEnd((int) (34 * destiny));
+                params.setMarginEnd((int) (44 * destiny));
             }
             searchIcon.setLayoutParams(params);
             menuIcon.setVisibility(VISIBLE);
@@ -841,14 +841,18 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
             navIcon.setClickable(true);
             navIcon.getLayoutParams().width = (int) (50 * destiny);
 
-            ((LayoutParams) inputContainer.getLayoutParams()).setMarginStart((int) (50 * destiny));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                ((LayoutParams) inputContainer.getLayoutParams()).setMarginStart((int) (50 * destiny));
+            }
             arrowIcon.setVisibility(GONE);
         } else {
             navIcon.getLayoutParams().width = 1;
             navIcon.setVisibility(INVISIBLE);
             navIcon.setClickable(false);
 
-            ((LayoutParams) inputContainer.getLayoutParams()).setMarginStart((int) (0 * destiny));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                ((LayoutParams) inputContainer.getLayoutParams()).setMarginStart((int) (0 * destiny));
+            }
             arrowIcon.setVisibility(VISIBLE);
         }
         navIcon.requestLayout();
