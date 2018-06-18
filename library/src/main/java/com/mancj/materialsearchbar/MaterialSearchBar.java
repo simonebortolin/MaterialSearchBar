@@ -252,8 +252,10 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
                 menuIconRes = iconResId;
                 menuIcon.setImageResource(menuIconRes);
             }
-            RelativeLayout.LayoutParams params = (LayoutParams) searchIcon.getLayoutParams();
-            params.setMarginEnd((int) (48 * destiny));
+            LayoutParams params = (LayoutParams) searchIcon.getLayoutParams();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                params.setMarginEnd((int) (34 * destiny));
+            }
             searchIcon.setLayoutParams(params);
             menuIcon.setVisibility(VISIBLE);
             menuIcon.setOnClickListener(this);
