@@ -943,6 +943,7 @@ public class MaterialSearchBar extends RelativeLayout implements View.OnClickLis
                 enableSearch();
             }
         } else if (id == R.id.mt_arrow) {
+            onSearchActionListener.onButtonClicked(BUTTON_BACK);
             disableSearch();
         } else if (id == R.id.mt_search) {
             if (listenerExists())
