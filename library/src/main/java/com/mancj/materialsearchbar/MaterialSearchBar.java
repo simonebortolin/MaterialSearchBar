@@ -108,6 +108,9 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
     private int textCursorColor;
     private int highlightedTextColor;
 
+    // 수정 중
+    private OnClickListener arrowOnClickListener;
+
     public MaterialSearchBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
@@ -192,7 +195,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
         //Listeners
         setOnClickListener(this);
-        arrowIcon.setOnClickListener(this);
+        arrowIcon.setOnClickListener(arrowOnClickListener);
         searchIcon.setOnClickListener(this);
         searchEdit.setOnFocusChangeListener(this);
         searchEdit.setOnEditorActionListener(this);
@@ -200,6 +203,13 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
         postSetup();
 
+    }
+
+    /**
+     * set Arrow OnClickListener
+     */
+    public void setArrowOnClickListener(OnClickListener arrowOnClickListener){
+        this.arrowOnClickListener = arrowOnClickListener;
     }
 
     /**
