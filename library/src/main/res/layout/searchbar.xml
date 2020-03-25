@@ -63,7 +63,7 @@
 
                 <ImageView
                     android:id="@+id/mt_arrow"
-                    android:layout_width="48dp"
+                    android:layout_width="100dp"
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"

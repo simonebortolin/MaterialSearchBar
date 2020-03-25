@@ -27,6 +27,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
@@ -107,9 +108,6 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
     private int textCursorColor;
     private int highlightedTextColor;
-
-    // 수정 중
-    private OnClickListener arrowOnClickListener;
 
     public MaterialSearchBar(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -195,21 +193,18 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
         //Listeners
         setOnClickListener(this);
-        arrowIcon.setOnClickListener(arrowOnClickListener);
+        arrowIcon.setOnClickListener(this);
         searchIcon.setOnClickListener(this);
         searchEdit.setOnFocusChangeListener(this);
         searchEdit.setOnEditorActionListener(this);
         navIcon.setOnClickListener(this);
 
         postSetup();
-
     }
 
-    /**
-     * set Arrow OnClickListener
-     */
-    public void setArrowOnClickListener(OnClickListener arrowOnClickListener){
-        this.arrowOnClickListener = arrowOnClickListener;
+
+    public void setArrowOnClickListener(OnClickListener listener) {
+        arrowIcon.setOnClickListener(listener);
     }
 
     /**
@@ -1054,6 +1049,10 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
             return true;
         }
         return super.dispatchKeyEvent(event);
+    }
+
+    public interface OnArrowClickListener {
+        void onClick();
     }
 
     /**

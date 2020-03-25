@@ -60,6 +60,14 @@ public class MainActivity extends AppCompatActivity
                 searchBar.openSearch();
             }
         });
+
+        searchBar.setNavButtonEnabled(false);
+        searchBar.setArrowOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("fefef", "onClick: fefefef");
+            }
+        });
     }
 
     @Override
