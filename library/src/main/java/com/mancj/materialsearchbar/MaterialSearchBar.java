@@ -492,7 +492,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         findViewById(R.id.mt_divider).setVisibility(to > 0 ? View.VISIBLE : View.GONE);
 
         ValueAnimator animator = ValueAnimator.ofInt(from, to);
-        animator.setDuration(200);
+        animator.setDuration(100);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
