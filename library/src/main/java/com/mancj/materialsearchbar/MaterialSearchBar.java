@@ -480,6 +480,9 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         }
     }
 
+    /**
+     * Suggestion 목록을 보여줄 때, 애니메이션을 설정한다.
+     */
     private void animateSuggestions(int from, int to) {
         suggestionsVisible = to > 0;
         final RecyclerView suggestionsList = findViewById(R.id.mt_recycler);
@@ -489,7 +492,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         findViewById(R.id.mt_divider).setVisibility(to > 0 ? View.VISIBLE : View.GONE);
 
         ValueAnimator animator = ValueAnimator.ofInt(from, to);
-        animator.setDuration(1200);
+        animator.setDuration(200);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
