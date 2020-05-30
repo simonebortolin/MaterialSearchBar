@@ -235,8 +235,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
     private void inflateMenuRequest(int menuResource, int iconResId) {
 
-        int menuResource1 = menuResource;
-        if (menuResource1 > 0) {
+        if (menuResource > 0) {
             ImageView menuIcon = findViewById(R.id.mt_menu);
             if (iconResId != -1) {
                 menuIconRes = iconResId;
@@ -246,7 +245,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
             menuIcon.setOnClickListener(this);
             popupMenu = new PopupMenu(getContext(), menuIcon);
             popupMenu.inflate(menuResource);
-            popupMenu.setGravity(Gravity.RIGHT);
+            popupMenu.setGravity(Gravity.END);
         }
     }
 
