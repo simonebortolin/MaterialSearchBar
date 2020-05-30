@@ -242,7 +242,9 @@ I thank all the authors of the various commits that I have included in my fork
 
     The MIT License (MIT)
 
-    Copyright (c) 2016
+    Copyright 2016 mancj
+    Copyright 2018-2020 Simone Bortolin
+
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
