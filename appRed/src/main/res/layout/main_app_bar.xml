@@ -26,8 +26,7 @@
 
     <com.mancj.materialsearchbar.MaterialSearchBar
         style="@style/MaterialSearchBarLight"
-
-
+        app:mt_suggestionsAnimationSpeed="100"
         android:id="@+id/searchBar"
         app:mt_navIconDrawable="@drawable/ic_arrow_back_black_24dp"
         app:mt_placeholder="Google Play"

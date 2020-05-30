@@ -68,7 +68,7 @@ public class DefaultSuggestionsAdapter extends SuggestionsAdapter<String, Defaul
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    if (position > 0 && position < getSuggestions().size()) {
+                    if (position >= 0 && position < getSuggestions().size()) {
                         v.setTag(getSuggestions().get(getAdapterPosition()));
                         listener.OnItemDeleteListener(getAdapterPosition(), v);
                     }
