@@ -1,11 +1,12 @@
 package com.mancj.materialsearchbar.adapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.mancj.materialsearchbar.R;
 
@@ -47,9 +48,11 @@ public class DefaultSuggestionsAdapter extends SuggestionsAdapter<String, Defaul
         void OnItemDeleteListener(int position, View v);
     }
 
-    class SuggestionHolder extends RecyclerView.ViewHolder{
-        private TextView text;
-        private ImageView iv_delete;
+
+    class SuggestionHolder extends RecyclerView.ViewHolder {
+        private final TextView text;
+        private final ImageView iv_delete;
+
         public SuggestionHolder(final View itemView) {
             super(itemView);
             text = itemView.findViewById(R.id.text);
@@ -58,14 +61,17 @@ public class DefaultSuggestionsAdapter extends SuggestionsAdapter<String, Defaul
                 @Override
                 public void onClick(View v) {
                     v.setTag(getSuggestions().get(getAdapterPosition()));
-                    listener.OnItemClickListener(getAdapterPosition(),v);
+                    listener.OnItemClickListener(getAdapterPosition(), v);
                 }
             });
             iv_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    v.setTag(getSuggestions().get(getAdapterPosition()));
-                    listener.OnItemDeleteListener(getAdapterPosition(),v);
+                    int position = getAdapterPosition();
+                    if (position > 0 && position < getSuggestions().size()) {
+                        v.setTag(getSuggestions().get(getAdapterPosition()));
+                        listener.OnItemDeleteListener(getAdapterPosition(), v);
+                    }
                 }
             });
         }

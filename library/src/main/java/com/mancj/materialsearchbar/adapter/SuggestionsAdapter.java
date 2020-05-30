@@ -1,18 +1,15 @@
 package com.mancj.materialsearchbar.adapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by mancj on 27.01.17.
- */
 
 /**
  * Create this adapter to customize the suggestions list of the MaterialSearchBar
@@ -24,8 +21,9 @@ public abstract class SuggestionsAdapter<S, V extends RecyclerView.ViewHolder> e
 
     protected List<S> suggestions = new ArrayList<>();
     protected List<S> suggestions_clone = new ArrayList<>();
-    protected int maxSuggestionsCount = 5;
+
     private LayoutInflater inflater;
+    protected int maxSuggestionsCount = 5;
 
     public SuggestionsAdapter(LayoutInflater inflater) {
         this.inflater = inflater;
