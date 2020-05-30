@@ -494,9 +494,10 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
     private void animateSuggestions(int from, int to) {
         suggestionsVisible = to > 0;
-        final RelativeLayout last = findViewById(R.id.last);
-        final ViewGroup.LayoutParams lp = last.getLayoutParams();
         final RecyclerView suggestionsList = findViewById(R.id.mt_recycler);
+
+        final ViewGroup.LayoutParams lp = suggestionsList.getLayoutParams();
+
         if (to == 0 && lp.height == 0)
             return;
         findViewById(R.id.mt_divider).setVisibility(to > 0 ? View.VISIBLE : View.GONE);
