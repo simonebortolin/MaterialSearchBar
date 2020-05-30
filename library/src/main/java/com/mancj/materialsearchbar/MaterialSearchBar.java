@@ -26,7 +26,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.PopupMenu;
@@ -208,7 +207,11 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         navIcon.setOnClickListener(this);
 
         postSetup();
+    }
 
+
+    public void setArrowOnClickListener(OnClickListener listener) {
+        arrowIcon.setOnClickListener(listener);
     }
 
     /**
@@ -490,7 +493,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
                 this.navIcon.setImageResource(R.drawable.ic_back_animated);
             }
         }
-        if(navIconResId == -1) {
+        if (navIconResId == -1) {
             Drawable mDrawable = navIcon.getDrawable();
             if (mDrawable instanceof Animatable) {
                 ((Animatable) mDrawable).start();
@@ -499,6 +502,9 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
     }
 
+    /**
+     * Suggestion 목록을 보여줄 때, 애니메이션을 설정한다.
+     */
     private void animateSuggestions(int from, int to) {
         suggestionsVisible = to > 0;
         final RecyclerView suggestionsList = findViewById(R.id.mt_recycler);
@@ -1098,6 +1104,10 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
             return true;
         }
         return super.dispatchKeyEvent(event);
+    }
+
+    public interface OnArrowClickListener {
+        void onClick();
     }
 
     /**

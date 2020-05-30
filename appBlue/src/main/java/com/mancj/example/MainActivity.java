@@ -1,17 +1,16 @@
 package com.mancj.example;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -58,6 +57,14 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 searchBar.openSearch();
+            }
+        });
+
+        searchBar.setNavButtonEnabled(false);
+        searchBar.setArrowOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("fefef", "onClick: fefefef");
             }
         });
     }
