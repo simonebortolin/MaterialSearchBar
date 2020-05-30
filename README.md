@@ -85,6 +85,7 @@ then add SearchBar to your activity:
 | mt_rightTextSelectorTint | set right text selector tint color                                                  |
 | mt_handlesTintEnabled  | should text selectors use tint color                                                  |
 | mt_highlightedTextColor | set the text highlight tint color                                                    |
+| mt_suggestionsAnimationSpeed | set the animation speed |
 
 ----------
 **public methods:**
