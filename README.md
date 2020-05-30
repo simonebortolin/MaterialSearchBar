@@ -1,27 +1,8 @@
 # Material SearchBar Android
 [![](https://jitpack.io/v/simonebortolin/MaterialSearchBar.svg)](https://jitpack.io/#simonebortolin/MaterialSearchBar)
 
-<<<<<<< HEAD
-Android 3rd party library to make a MaterialSearchBar in a easy mode. 
+Android 3rd party library to make a MaterialSearchBar in a easy mode.
 This beautiful and easy to use library will help to add a Material Design SearchView in your project.
-=======
-# Material SearchBar Android
-Material Design Search Bar for Android
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MaterialSearchBar-orange.svg?style=flat)](http://android-arsenal.com/details/1/4158)
-[![](https://jitpack.io/v/mancj/MaterialSearchBar.svg)](https://jitpack.io/#mancj/MaterialSearchBar)
-
-----------
-This beautiful and easy to use library will help to add Lollipop Material Design SearchView in your project.
-
-<img src="/art/preview.gif" width="400">
-<img src="/art/pv1.png" width="400">
-<img src="/art/pv2.png" width="400">
-<img src="/art/pv3.png" width="400">
-<img src="/art/pv4.png" width="400">
-<img src="/art/pv5.png" width="400">
-
-----------
->>>>>>> ae97157dfe6d0219bdbc1f9ad06e88274a7ca326
 
 ## Screenshots
 <img src="https://github.com/simonebortolin/MaterialSearchBar/blob/master/image_1.png" alt="" width="200px"></a>
@@ -30,11 +11,7 @@ This beautiful and easy to use library will help to add Lollipop Material Design
 
 ## Installation
 
-<<<<<<< HEAD
 Step 1. Add it in your **root** build.gradle at the end of repositories:
-=======
-# How to use
->>>>>>> ae97157dfe6d0219bdbc1f9ad06e88274a7ca326
 
 	allprojects {
 		repositories {
@@ -47,14 +24,9 @@ Step 2. Add the dependency
 
 ```gradle
 dependencies {
-<<<<<<< HEAD
 	implementation 'com.github.simonebortolin:MaterialSearchBar:0.10'
-=======
-	implementation 'com.github.mancj:MaterialSearchBar:X.X.X'
->>>>>>> ae97157dfe6d0219bdbc1f9ad06e88274a7ca326
 }
 ```
-[![](https://jitpack.io/v/mancj/MaterialSearchBar.svg)](https://jitpack.io/#mancj/MaterialSearchBar)
 
 ## How to use this library
 
@@ -102,9 +74,16 @@ then add SearchBar to your activity:
 | mt_hint                | set the text of the hint when the searchbar is focused and search query is empty      |
 | mt_placeholder         | set the placeholder text when the MaterialSearchBar is not focused                    |
 | mt_textColor           | set text color                                                                        |
-| mt_hintColor           | set hint color                                                                        | 
+| mt_hintColor           | set hint color                                                                        |
 | mt_placeholderColor    | set placeholder color                                                                 |
 | mt_textCursorTint      | set text cursors tint                                                                 |
+| mt_leftTextSelectorDrawable | set left text selector drawable                                                  |
+| mt_middleTextSelectorDrawable | set middle text selector drawable                                              |
+| mt_rightTextSelectorDrawable | set right text selector drawable                                                |
+| mt_leftTextSelectorTint | set left text selector tint color                                                    |
+| mt_middleTextSelectorTint | set middle text selector tint color                                                |
+| mt_rightTextSelectorTint | set right text selector tint color                                                  |
+| mt_handlesTintEnabled  | should text selectors use tint color                                                  |
 | mt_highlightedTextColor | set the text highlight tint color                                                    |
 
 ----------
@@ -112,15 +91,15 @@ then add SearchBar to your activity:
 
  - `addTextChangeListener(TextWatcher textWatcher)`
  - `clearSuggestions()`
- - `closeSearch()`
- - `openSearch()`
+ - `disableSearch()`
+ - `enableSearch()`
  - `getLastSuggestions()`
  - `getMenu()`
  - `getText()`
  - `hideSuggestionList()`
  - `inflateMenu(int menuResource)`
  - `inflateMenu(int menuResource, int icon)`
- - `isSearchOpened()`
+ - `isSearchEnabled()`
  - `isSpeechModeEnabled()`
  - `isSuggestionsVisible()`
  - `setArrowIcon(int arrowIconResId)`
@@ -158,79 +137,9 @@ then add SearchBar to your activity:
 
 ----------
 
-<<<<<<< HEAD
 To save search queries when the activity is destroyed, use the method `searchBar.getLastSuggestions()` and then, to restore them use `searchBar.setLastSuggestions(List<String>);` as shown in the example below
 
 ### Example
-=======
-```xml
-Provided Styles are: MaterialSearchBarLight and MaterialSearchBarDark
-
-Example:
-<style name="MyCustomTheme" parent="MaterialSearchBarLight">
-     <item name="mt_searchBarColor">@color/searchBarPrimaryColor</item>
-            <item name="mt_dividerColor">@color/searchBarDividerColor</item>
-            <item name="mt_navIconTint">@color/searchBarNavIconTintColor</item>
-            <item name="mt_searchIconTint">@color/searchBarSearchIconTintColor</item>
-            <item name="mt_clearIconTint">@color/searchBarClearIconTintColor</item>
-            <item name="mt_menuIconTint">@color/searchBarMenuIconTintColor</item>
-            <item name="mt_backIconTint">@color/searchBarBackIconTintColor</item>
-            <item name="mt_textCursorTint">@color/searchBarCursorColor</item>
-            <item name="mt_textColor">@color/searchBarTextColor</item>
-            <item name="mt_hintColor">@color/searchBarHintColor</item>
-            <item name="mt_placeholderColor">@color/searchBarPlaceholderColor</item>
-            <item name="mt_highlightedTextColor">@color/searchBarTextHighlightColor</item>
-</style>
-```
-**OR**
-
-**Custom Colors - colors.xml** 
-Simply set/change these colors(or some) and you have your custom style.
-```xml
-    //Material SearchBar Light Theme Colors
-        <color name="searchBarIconColor">#3a3a3a</color>
-        //Base
-        <color name="searchBarPrimaryColor">#FFFFFF</color>
-        <color name="searchBarCursorColor">#8000a1ff</color>
-        <color name="searchBarDividerColor">#1F000000</color>
-    
-        //Icons
-        <color name="searchBarNavIconTintColor">@color/searchBarIconColor</color>
-        <color name="searchBarMenuIconTintColor">@color/searchBarIconColor</color>
-        <color name="searchBarSearchIconTintColor">@color/searchBarIconColor</color>
-        <color name="searchBarClearIconTintColor">@color/searchBarIconColor</color>
-        <color name="searchBarBackIconTintColor">@color/searchBarIconColor</color>
-    
-        //Text
-        <color name="searchBarTextColor">#DE000000</color>
-        <color name="searchBarHintColor">#42000000</color>
-        <color name="searchBarPlaceholderColor">#8A000000</color>
-        <color name="searchBarTextHighlightColor">#8000a1ff</color>
-    
-        //Base
-        <color name="searchBarPrimaryColorDark">#303030</color>
-        <color name="searchBarDividerColorDark">#1FFFFFFF</color>
-    
-        //Material SearchBar Dark Theme Colors
-        <color name="searchBarIconColorDark">#00a1ff</color>
-        //Icons
-        <color name="searchBarNavIconTintColorDark">@color/searchBarIconColorDark</color>
-        <color name="searchBarMenuIconTintColorDark">@color/searchBarIconColorDark</color>
-        <color name="searchBarSearchIconTintColorDark">@color/searchBarIconColorDark</color>
-        <color name="searchBarClearIconTintColorDark">@color/searchBarIconColorDark</color>
-        <color name="searchBarBackIconTintColorDark">@color/searchBarIconColorDark</color>
-    
-        //Text
-        <color name="searchBarTextColorDark">#DEFFFFFF</color>
-        <color name="searchBarHintColorDark">#42FFFFFF</color>
-        <color name="searchBarPlaceholderColorDark">#8AFFFFFF</color>
-        <color name="searchBarTextHighlightColorDark">#BF00a1ff</color>
-```
-----------
-To save search queries when the activity is destroyed, use the method `searchBar.getLastSuggestions()` and then, to restore them use `searchBar.setLastSuggestions(List<String>);` as shown in the example below
-
-# Example
->>>>>>> ae97157dfe6d0219bdbc1f9ad06e88274a7ca326
 
 Here is a simple example of using MaterialSearchBar
 Kotlin

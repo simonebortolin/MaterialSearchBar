@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.PopupMenu;
@@ -65,6 +66,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
     private EditText searchEdit;
     private TextView placeHolder;
     private View suggestionDivider;
+    private View menuDivider;
     private OnSearchActionListener onSearchActionListener;
     private boolean searchOpened;
     private boolean suggestionsVisible;
@@ -236,19 +238,11 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
                 menuIconRes = iconResId;
                 menuIcon.setImageResource(menuIconRes);
             }
-            if(!getResources().getBoolean(R.bool.is_right_to_left)) {
-                LayoutParams params = (LayoutParams) searchIcon.getLayoutParams();
-                params.alignWithParent = false;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-                    params.setMarginEnd((int) (48 * destiny));
-                params.rightMargin = (int) (48 * destiny);
-                searchIcon.setLayoutParams(params);
-            }
             menuIcon.setVisibility(VISIBLE);
             menuIcon.setOnClickListener(this);
             popupMenu = new PopupMenu(getContext(), menuIcon);
             popupMenu.inflate(menuResource);
-            popupMenu.setGravity(Gravity.END);
+            popupMenu.setGravity(Gravity.RIGHT);
         }
     }
 
@@ -478,21 +472,6 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         searchIcon.startAnimation(left_out);
     }
 
-    private void animateNavIcon() {
-        if (navButtonEnabled) {
-            if (navIconShown || navIconResId != R.drawable.ic_back_animated) {
-                this.navIcon.setImageResource(navIconResId);
-            } else {
-                this.navIcon.setImageResource(R.drawable.ic_back_animated);
-            }
-            Drawable mDrawable = navIcon.getDrawable();
-            if (mDrawable instanceof Animatable) {
-                ((Animatable) mDrawable).start();
-            }
-        }
-        //no anim for up button
-        navIconShown = !navIconShown;
-    }
     private void animateNavIcon(boolean menuState) {
         if (menuState) {
             this.navIcon.setImageResource(R.drawable.ic_menu_animated);
@@ -510,7 +489,6 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         final RelativeLayout last = findViewById(R.id.last);
         final ViewGroup.LayoutParams lp = last.getLayoutParams();
         final RecyclerView suggestionsList = findViewById(R.id.mt_recycler);
-        final ViewGroup.LayoutParams lp = suggestionsList.getLayoutParams();
         if (to == 0 && lp.height == 0)
             return;
         findViewById(R.id.mt_divider).setVisibility(to > 0 ? View.VISIBLE : View.GONE);

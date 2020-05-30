@@ -1,16 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.mancj.example"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 2
-        versionName "1.1"
+        versionName "1.2"
+
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -24,7 +24,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':library')
-    testImplementation 'junit:junit:4.12'
+        testImplementation 'junit:junit:4.12'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'

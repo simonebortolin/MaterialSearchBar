@@ -1,12 +1,6 @@
 package com.mancj.example;
 
 import android.os.Bundle;
-<<<<<<< HEAD
-import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.Menu;
-=======
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -18,34 +12,30 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
->>>>>>> ae97157dfe6d0219bdbc1f9ad06e88274a7ca326
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener, MaterialSearchBar.OnSearchActionListener {
     MaterialSearchBar searchBar;
+    private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
-        searchBar = findViewById(R.id.searchBar);
-=======
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         searchBar = findViewById(R.id.searchBar);
         searchBar.setOnSearchActionListener(this);
->>>>>>> ae97157dfe6d0219bdbc1f9ad06e88274a7ca326
         searchBar.inflateMenu(R.menu.main);
         searchBar.setText("Hello World!");
+        Log.d("LOG_TAG", getClass().getSimpleName() + ": text " + searchBar.getText());
         searchBar.setCardViewElevation(10);
-        searchBar.setUpButtonEnabled(false);
         searchBar.addTextChangeListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -53,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("LOG_TAG", getClass().getSimpleName() + " text changed " + searchBar.getText());
             }
 
             @Override
@@ -61,11 +52,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-<<<<<<< HEAD
-        searchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
-            @Override
-            public void onSearchStateChanged(boolean enabled) {
-=======
 
         final FloatingActionButton searchButton = findViewById(R.id.searchButton);
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -123,39 +109,26 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
->>>>>>> ae97157dfe6d0219bdbc1f9ad06e88274a7ca326
 
-            }
+        } else if (id == R.id.nav_send) {
 
-            @Override
-            public void onSearchConfirmed(CharSequence text) {
+        }
 
-            }
-
-            @Override
-            public void onButtonClicked(int buttonCode) {
-                switch (buttonCode) {
-                    case MaterialSearchBar.BUTTON_NAVIGATION:
-                        break;
-                    case MaterialSearchBar.BUTTON_SPEECH:
-                        break;
-                    case MaterialSearchBar.BUTTON_BACK:
-                        searchBar.disableSearch();
-                        break;
-                }
-            }
-        });
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
-
+    @Override
+    public void onSearchStateChanged(boolean enabled) {
+    }
 
     @Override
-<<<<<<< HEAD
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-=======
+    public void onSearchConfirmed(CharSequence text) {
+
+    }
+
+    @Override
     public void onButtonClicked(int buttonCode) {
         switch (buttonCode) {
             case MaterialSearchBar.BUTTON_NAVIGATION:
@@ -167,6 +140,5 @@ public class MainActivity extends AppCompatActivity {
                 searchBar.closeSearch();
                 break;
         }
->>>>>>> ae97157dfe6d0219bdbc1f9ad06e88274a7ca326
     }
 }
