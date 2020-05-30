@@ -24,7 +24,7 @@ Step 2. Add the dependency
 
 ```gradle
 dependencies {
-	implementation 'com.github.simonebortolin:MaterialSearchBar:0.10'
+	implementation 'com.github.simonebortolin:MaterialSearchBar:1.2.1'
 }
 ```
 
