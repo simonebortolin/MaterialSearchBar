@@ -1,4 +1,4 @@
-package com.mancj.example;
+package com.mancj.app;
 
 import org.junit.Test;
 

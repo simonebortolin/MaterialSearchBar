@@ -1,4 +1,4 @@
-package com.mancj.example;
+package com.mancj.app;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

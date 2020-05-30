@@ -112,6 +112,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
     private int textCursorColor;
     private int highlightedTextColor;
 
+
     public MaterialSearchBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
@@ -186,7 +187,6 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         //View References
         searchBarCardView = findViewById(R.id.mt_container);
         suggestionDivider = findViewById(R.id.mt_divider);
-        menuDivider = findViewById(R.id.mt_menu_divider);
 
         menuIcon = findViewById(R.id.mt_menu);
         clearIcon = findViewById(R.id.mt_clear);
@@ -209,6 +209,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         postSetup();
 
     }
+
 
     /**
      * Inflate menu for searchBar

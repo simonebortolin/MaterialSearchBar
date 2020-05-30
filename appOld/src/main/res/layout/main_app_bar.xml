@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.mancj.example.MainActivity">
+    tools:context="com.mancj.app.MainActivity">
 
 
     <include layout="@layout/main_content" />

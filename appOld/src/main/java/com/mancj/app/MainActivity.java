@@ -1,10 +1,11 @@
-package com.mancj.example;
+package com.mancj.app;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     case MaterialSearchBar.BUTTON_SPEECH:
                         break;
                     case MaterialSearchBar.BUTTON_BACK:
-                        searchBar.disableSearch();
+                        searchBar.closeSearch();
                         break;
                 }
             }
