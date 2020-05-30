@@ -84,6 +84,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
     private boolean speechMode;
     private int maxSuggestionCount;
+    private int suggestionAnimationSpeed;
     private boolean navButtonEnabled;
     private boolean upButtonEnabled;
     private boolean roundedSearchBarEnabled;
@@ -142,6 +143,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         dividerColor = array.getColor(R.styleable.MaterialSearchBar_mt_dividerColor, ContextCompat.getColor(getContext(), R.color.searchBarDividerColor));
         searchBarColor = array.getColor(R.styleable.MaterialSearchBar_mt_searchBarColor, ContextCompat.getColor(getContext(), R.color.searchBarPrimaryColor));
         navIconResId = array.getResourceId(R.styleable.MaterialSearchBar_mt_navIconDrawable, -1);
+        suggestionAnimationSpeed = array.getInteger(R.styleable.MaterialSearchBar_mt_suggestionsAnimationSpeed, 1200);
 
         //Icon Related Attributes
         menuIconRes = array.getResourceId(R.styleable.MaterialSearchBar_mt_menuIconDrawable, R.drawable.ic_more_vert_black_24dp);
@@ -508,7 +510,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         findViewById(R.id.mt_divider).setVisibility(to > 0 ? View.VISIBLE : View.GONE);
 
         ValueAnimator animator = ValueAnimator.ofInt(from, to);
-        animator.setDuration(1200);
+        animator.setDuration(suggestionAnimationSpeed);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
