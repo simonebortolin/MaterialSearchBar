@@ -973,6 +973,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
                 openSearch();
             }
         } else if (id == R.id.mt_arrow) {
+            onSearchActionListener.onButtonClicked(BUTTON_BACK);
             closeSearch();
         } else if (id == R.id.mt_search) {
             if (listenerExists())
