@@ -46,7 +46,6 @@ import static android.content.ContentValues.TAG;
 
 /**
  * Created by mancj on 19.07.2016.
- *
  */
 public class MaterialSearchBar extends FrameLayout implements View.OnClickListener,
         Animation.AnimationListener, SuggestionsAdapter.OnItemViewClickListener,
@@ -210,7 +209,6 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
     }
 
-
     /**
      * Inflate menu for searchBar
      *
@@ -230,7 +228,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
         inflateMenuRequest(menuResource, icon);
     }
 
-    private void inflateMenuRequest(int menuResource, int iconResId ) {
+    private void inflateMenuRequest(int menuResource, int iconResId) {
 
         int menuResource1 = menuResource;
         if (menuResource1 > 0) {
@@ -332,9 +330,8 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
     private void setupIcons() {
         //Drawables
         //Animated Nav Icon
-        if(navIconResId < 0) navIconResId = R.drawable.ic_menu_animated;
+        //if (navIconResId < 0) navIconResId = R.drawable.ic_menu_animated;
         setupNavIcon(navButtonEnabled, upButtonEnabled);
-
 
 
         //Menu
@@ -401,7 +398,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
     }
 
     private void setupIconRippleStyle() {
-        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
             TypedValue rippleStyle = new TypedValue();
             if (borderlessRippleEnabled && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackgroundBorderless, rippleStyle, true);
@@ -413,7 +410,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
             menuIcon.setBackgroundResource(rippleStyle.resourceId);
             arrowIcon.setBackgroundResource(rippleStyle.resourceId);
             clearIcon.setBackgroundResource(rippleStyle.resourceId);
-        }else{
+        } else {
             Log.w(TAG, "setupIconRippleStyle() Only Available On SDK Versions Higher Than 16!");
         }
     }
@@ -475,14 +472,24 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
     private void animateNavIcon(boolean menuState) {
         if (menuState) {
+
             this.navIcon.setImageResource(R.drawable.ic_menu_animated);
+
         } else {
-            this.navIcon.setImageResource(R.drawable.ic_back_animated);
+            if (navIconResId != -1) {
+                this.navIcon.setImageResource(navIconResId);
+
+            } else {
+                this.navIcon.setImageResource(R.drawable.ic_back_animated);
+            }
         }
-        Drawable mDrawable = navIcon.getDrawable();
-        if (mDrawable instanceof Animatable) {
-            ((Animatable) mDrawable).start();
+        if(navIconResId == -1) {
+            Drawable mDrawable = navIcon.getDrawable();
+            if (mDrawable instanceof Animatable) {
+                ((Animatable) mDrawable).start();
+            }
         }
+
     }
 
     private void animateSuggestions(int from, int to) {
@@ -590,13 +597,13 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
      * @param navIconResId icon resource id
      */
     public void setNavIcon(int navIconResId) {
-        if(navIconResId < 0) navIconResId =  R.drawable.ic_back_animated;
+        if (navIconResId < 0) navIconResId = R.drawable.ic_back_animated;
         this.navIconResId = navIconResId;
         this.navIcon.setImageResource(navIconResId);
     }
+
     /**
      * Set the animated nav icon drawable
-     *
      */
     public void setNavIcon() {
         setNavIcon(-1);
@@ -861,7 +868,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
             navIcon.setClickable(true);
             arrowIcon.setVisibility(GONE);
 
-            this.navIcon.setImageResource(navIconResId);
+            if(navIconResId != -1) this.navIcon.setImageResource(navIconResId);
         } else {
             navIcon.setVisibility(GONE);
             navIcon.setClickable(false);
@@ -875,6 +882,7 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
     /**
      * Set navigation up menu enabled.
      * Can display back icon (up navigation icon) instead of menu button {@link #setNavButtonEnabled(boolean)}.
+     *
      * @param upButtonEnabled icon enabled
      */
 
