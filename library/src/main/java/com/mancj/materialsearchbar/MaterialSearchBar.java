@@ -472,10 +472,15 @@ public class MaterialSearchBar extends FrameLayout implements View.OnClickListen
 
     private void animateNavIcon(boolean menuState) {
         if (menuState) {
+            if (navIconResId != -1) {
+                this.navIcon.setImageResource(navIconResId);
 
-            this.navIcon.setImageResource(R.drawable.ic_menu_animated);
+            } else {
+                this.navIcon.setImageResource(R.drawable.ic_menu_animated);
 
-        } else {
+            }
+        }
+        else {
             if (navIconResId != -1) {
                 this.navIcon.setImageResource(navIconResId);
 
