@@ -143,6 +143,7 @@ To save search queries when the activity is destroyed, use the method `searchBar
 ### Example
 
 Here is a simple example of using MaterialSearchBar
+
 Kotlin
 
     searchBar.inflateMenu(R.menu.main)
