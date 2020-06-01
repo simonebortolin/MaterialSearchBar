@@ -441,7 +441,7 @@ Kotlin
                 }
                 MaterialSearchBar.BUTTON_SPEECH -> {
                 }
-                MaterialSearchBar.BUTTON_BACK -> searchBar.disableSearch()
+                MaterialSearchBar.BUTTON_BACK -> searchBar.closeSearch()
             }
         }
     })
@@ -488,7 +488,7 @@ Java
                 case MaterialSearchBar.BUTTON_SPEECH:
                     break;
                 case MaterialSearchBar.BUTTON_BACK:
-                    searchBar.disableSearch();
+                    searchBar.closeSearch();
                     break;
             }
         }
