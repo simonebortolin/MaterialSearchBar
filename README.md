@@ -25,7 +25,7 @@ Step 2. Add the dependency
 ```gradle
 dependencies {
 	implementation 'androidx.recyclerview:recyclerview:1.1.0'
-	implementation 'com.github.simonebortolin:MaterialSearchBar:1.2.1'
+	implementation 'com.github.simonebortolin:MaterialSearchBar:1.2.2'
 }
 ```
 
