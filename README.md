@@ -24,6 +24,7 @@ Step 2. Add the dependency
 
 ```gradle
 dependencies {
+	implementation 'androidx.recyclerview:recyclerview:1.1.0'
 	implementation 'com.github.simonebortolin:MaterialSearchBar:1.2.1'
 }
 ```
@@ -45,7 +46,7 @@ then add SearchBar to your activity:
 
 ----------
 
-**MaterialSearchBar has the following xml attributes:**
+### MaterialSearchBar has the following xml attributes:
 
 | Attribute              | Description                                                                           |
 |------------------------|---------------------------------------------------------------------------------------|
@@ -88,57 +89,322 @@ then add SearchBar to your activity:
 | mt_suggestionsAnimationSpeed | set the animation speed |
 
 ----------
-**public methods:**
 
- - `addTextChangeListener(TextWatcher textWatcher)`
- - `clearSuggestions()`
- - `disableSearch()`
- - `enableSearch()`
- - `getLastSuggestions()`
- - `getMenu()`
- - `getText()`
- - `hideSuggestionList()`
- - `inflateMenu(int menuResource)`
- - `inflateMenu(int menuResource, int icon)`
- - `isSearchEnabled()`
- - `isSpeechModeEnabled()`
- - `isSuggestionsVisible()`
- - `setArrowIcon(int arrowIconResId)`
- - `setArrowIconTint(int arrowIconTint)`
- - `setCardViewElevation(int elevation)`
- - `setClearIcon(int clearIconResId)`
- - `setClearIconTint(int clearIconTint)`
- - `setCustomSuggestionAdapter(SuggestionsAdapter suggestionAdapter)`
- - `setDividerColor(int dividerColor)`
- - `setHint(CharSequence hintText)`
- - `setIconRippleStyle(boolean borderlessRippleEnabled)`
- - `setLastSuggestions(List suggestions)`
- - `setMaxSuggestionCount(int maxSuggestionsCount)`
- - `setMenuDividerEnabled(boolean menuDividerEnabled)`
- - `setMenuIcon(int menuIconResId)`
- - `setNavIcon(int navIconResId)`
- - `setNavIcon()`
- - `setMenuIconTint(int menuIconTint)`
- - `setNavButtonEnabled(boolean navButtonEnabled)`
- - `setNavIconTint(int navIconTint)`
- - `setOnSearchActionListener(OnSearchActionListener onSearchActionListener)`
- - `setPlaceHolder(CharSequence placeholder)`
- - `setPlaceHolderColor(int placeholderColor)`
- - `setRoundedSearchBarEnabled(boolean roundedSearchBarEnabled)`
- - `setSearchIcon(int searchIconResId)`
- - `setSearchIconTint(int searchIconTint)`
- - `setSpeechModeEnabled(boolean speechMode)`
- - `setSuggestionsClickListener(SuggestionsAdapter.OnItemViewClickListener listener)`
- - `setText(String text)`
- - `setTextColor(int textColor)`
- - `setTextHighlightColor(int highlightedTextColor)`
- - `setTextHintColor(int hintColor)`
- - `showSuggestions()`
- - `updateLastSuggestions(List suggestions)`
+### Documentation
 
-----------
+#### `public void inflateMenu(int menuResource)`
 
-To save search queries when the activity is destroyed, use the method `searchBar.getLastSuggestions()` and then, to restore them use `searchBar.setLastSuggestions(List<String>);` as shown in the example below
+Inflate menu for searchBar
+
+ * **Parameters:** `menuResource` — - menu resource
+
+#### `public void inflateMenu(int menuResource, int icon)`
+
+Inflate menu for searchBar with custom Icon
+
+ * **Parameters:**
+   * `menuResource` — - menu resource
+   * `icon` — - icon resource id
+
+#### `public PopupMenu getMenu()`
+
+Get popup menu
+
+ * **Returns:** PopupMenu
+
+#### `private void setupRoundedSearchBarEnabled()`
+
+Capsule shaped searchbar enabled Only works on SDK V21+ due to odd behavior on lower
+
+#### `private void setupSearchEditText()`
+
+Setup editText coloring and drawables
+
+#### `public void setOnSearchActionListener(OnSearchActionListener onSearchActionListener)`
+
+Register listener for search bar callbacks.
+
+ * **Parameters:** `onSearchActionListener` — the callback listener
+
+#### `public void closeSearch()`
+
+Hides search input and close arrow
+
+#### `public void openSearch()`
+
+Shows search input and close arrow
+
+#### `private void animateSuggestions(int from, int to)`
+
+Suggestion 목록을 보여줄 때, 애니메이션을 설정한다.
+
+#### `public boolean isSuggestionsVisible()`
+
+Check if suggestions are shown
+
+ * **Returns:** return result
+
+#### `public boolean isSuggestionsEnabled()`
+
+Check if suggestions are enabled
+
+#### `public void setSuggestionsEnabled(boolean suggestionsEnabled)`
+
+Set suggestions enabled
+
+#### `public void setMenuIcon(int menuIconResId)`
+
+Set Menu Icon Drawable
+
+ * **Parameters:** `menuIconResId` — icon resource id
+
+#### `public void setSearchIcon(int searchIconResId)`
+
+Set search icon drawable
+
+ * **Parameters:** `searchIconResId` — icon resource id
+
+#### `public void setArrowIcon(int arrowIconResId)`
+
+Set back arrow icon drawable
+
+ * **Parameters:** `arrowIconResId` — icon resource id
+
+#### `public void setClearIcon(int clearIconResId)`
+
+Set clear icon drawable
+
+ * **Parameters:** `clearIconResId` — icon resource id
+
+#### `public void setNavIcon(int navIconResId)`
+
+Set the nav icon drawable
+
+ * **Parameters:** `navIconResId` — icon resource id
+
+#### `public void setNavIcon()`
+
+Set the animated nav icon drawable
+
+#### `public void setNavIconTint(int navIconTint)`
+
+Set the tint color of the navigation icon
+
+ * **Parameters:** `navIconTint` — nav icon color
+
+#### `public void setMenuIconTint(int menuIconTint)`
+
+Set the tint color of the menu icon
+
+ * **Parameters:** `menuIconTint` — menu icon color
+
+#### `public void setSearchIconTint(int searchIconTint)`
+
+Set the tint color of the search/speech icon
+
+ * **Parameters:** `searchIconTint` — search icon color
+
+#### `public void setArrowIconTint(int arrowIconTint)`
+
+Set the tint color of the back arrow icon
+
+ * **Parameters:** `arrowIconTint` — arrow icon color
+
+#### `public void setClearIconTint(int clearIconTint)`
+
+Set the tint color of the clear icon
+
+ * **Parameters:** `clearIconTint` — clear icon tint
+
+#### `public void setIconRippleStyle(boolean borderlessRippleEnabled)`
+
+Show a borderless ripple(circular) when icon is pressed Borderless only available on SDK V21+
+
+ * **Parameters:** `borderlessRippleEnabled` — true for borderless, false for default
+
+#### `public void setHint(CharSequence hintText)`
+
+Sets search bar hintText
+
+ * **Parameters:** `hintText` — hintText text
+
+#### `public void setPlaceHolder(CharSequence placeholder)`
+
+Set the place holder text
+
+ * **Parameters:** `placeholder` — placeholder text
+
+#### `public void setSpeechMode(boolean speechMode)`
+
+sets the speechMode for the search bar. If set to true, microphone icon will display instead of the search icon. Also clicking on this icon will trigger the callback method onButtonClicked()
+
+ * **Parameters:** `speechMode` — enable speech
+ * **See also:**
+   * #BUTTON_SPEECH
+   * OnSearchActionListener#onButtonClicked(int)
+
+#### `public boolean isSpeechModeEnabled()`
+
+True if MaterialSearchBar is in speech mode
+
+ * **Returns:** speech mode
+
+#### `public boolean isSearchOpened()`
+
+Check if search bar is in edit mode
+
+ * **Returns:** true if search bar is in edit mode
+
+#### `public void setMaxSuggestionCount(int maxSuggestionsCount)`
+
+Specifies the maximum number of search queries stored until the activity is destroyed
+
+ * **Parameters:** `maxSuggestionsCount` — maximum queries
+
+#### `public void setCustomSuggestionAdapter(SuggestionsAdapter suggestionAdapter)`
+
+Sets a custom adapter for suggestions list view.
+
+ * **Parameters:** `suggestionAdapter` — customized adapter
+
+#### `public List getLastSuggestions()`
+
+Returns the last search queries. The queries are stored only for the duration of one activity session. When the activity is destroyed, the queries will be deleted. To save queries, use the method getLastSuggestions(). To recover the queries use the method setLastSuggestions().
+
+<b color="red">List< String > will be returned if You don't use custom adapter.</b>
+
+ * **Returns:** array with the latest search queries
+ * **See also:**
+   * #setLastSuggestions(List)
+   * #setMaxSuggestionCount(int)
+
+#### `public void setLastSuggestions(List suggestions)`
+
+Sets the array of recent search queries. It is advisable to save the queries when the activity is destroyed and call this method when creating the activity.
+
+<b color="red">Pass a List< String > if You don't use custom adapter.</b>
+
+ * **Parameters:** `suggestions` — an array of queries
+ * **See also:**
+   * #getLastSuggestions()
+   * #setMaxSuggestionCount(int)
+
+#### `public void updateLastSuggestions(List suggestions)`
+
+Changes the array of recent search queries with animation.
+
+<b color="red">Pass a List< String > if You don't use custom adapter.</b>
+
+ * **Parameters:** `suggestions` — an array of queries
+
+#### `public void setSuggstionsClickListener(SuggestionsAdapter.OnItemViewClickListener listener)`
+
+Allows you to intercept the suggestions click event
+
+<b color="red">This method will not work with custom Suggestion Adapter</b>
+
+ * **Parameters:** `listener` — click listener
+
+#### `public void setTextColor(int textColor)`
+
+Set search input text color
+
+ * **Parameters:** `textColor` — text color
+
+#### `public void setTextHintColor(int hintColor)`
+
+Set text input hintText color
+
+ * **Parameters:** `hintColor` — text hintText color
+
+#### `public void setPlaceHolderColor(int placeholderColor)`
+
+Set placeholder text color
+
+ * **Parameters:** `placeholderColor` — placeholder color
+
+#### `public void setTextHighlightColor(int highlightedTextColor)`
+
+Set the color of the highlight when text is selected
+
+ * **Parameters:** `highlightedTextColor` — selected text highlight color
+
+#### `public void setNavButtonEnabled(boolean navButtonEnabled)`
+
+Set navigation drawer menu icon enabled
+
+ * **Parameters:** `navButtonEnabled` — icon enabled
+
+#### `public void setUpButtonEnabled(boolean upButtonEnabled)`
+
+Set navigation up menu enabled. Can display back icon (up navigation icon) instead of menu button {@link #setNavButtonEnabled(boolean)}.
+
+ * **Parameters:** `upButtonEnabled` — icon enabled
+
+#### `public void setRoundedSearchBarEnabled(boolean roundedSearchBarEnabled)`
+
+Enable capsule shaped SearchBar (API 21+)
+
+ * **Parameters:** `roundedSearchBarEnabled` — capsule shape enabled
+
+#### `public void setCardViewElevation(int elevation)`
+
+Set CardView elevation
+
+ * **Parameters:** `elevation` — desired elevation
+
+#### `public String getText()`
+
+Get search text
+
+ * **Returns:** text
+
+#### `public void setText(String text)`
+
+Set search text
+
+ * **Parameters:** `text` — text
+
+#### `public void addTextChangeListener(TextWatcher textWatcher)`
+
+Add text watcher to searchbar's EditText
+
+ * **Parameters:** `textWatcher` — textWatcher to add
+
+#### `public void removeTextChangeListener(TextWatcher textWatcher)`
+
+Remove text watcher to searchbar's EditText
+
+ * **Parameters:** `textWatcher` — textWatcher to add
+
+#### `private int getListHeight(boolean isSubtraction)`
+
+For calculate the height change when item delete or add animation false is return the full height of item, true is return the height of position subtraction one
+
+ * **Parameters:** `isSubtraction` — is subtraction enabled
+
+#### `public interface OnSearchActionListener`
+
+Interface definition for MaterialSearchBar callbacks.
+
+#### `void onSearchStateChanged(boolean enabled)`
+
+Invoked when SearchBar opened or closed
+
+ * **Parameters:** `enabled` — state
+
+#### `void onSearchConfirmed(CharSequence text)`
+
+Invoked when search confirmed and "search" button is clicked on the soft keyboard
+
+ * **Parameters:** `text` — search input
+
+#### `void onButtonClicked(int buttonCode)`
+
+Invoked when "speech" or "navigation" buttons clicked.
+
+ * **Parameters:** `buttonCode` — {@link #BUTTON_NAVIGATION}, {@link #BUTTON_SPEECH} or {@link #BUTTON_BACK} will be passed
+
 
 ### Example
 
