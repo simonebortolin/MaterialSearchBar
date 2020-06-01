@@ -43,7 +43,7 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-/**
+/*
  * Created by mancj on 19.07.2016.
  */
 public class MaterialSearchBar extends FrameLayout implements View.OnClickListener,
